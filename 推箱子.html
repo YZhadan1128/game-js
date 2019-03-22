@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>💣小可爱的推箱子</title>
+    <link rel="stylesheet" href="./css/game.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="shortcut icon" href="../../zhadanicon.png">
+    <style>
+        #game>h1{
+            font-size: 0px;
+        }
+        .choose{
+            position: fixed;
+            left: 15px;
+            top: 53px;
+            
+        }
+        .choose>li{
+            margin-top: 10px;
+            width: 70px;
+            border-radius: 5px;
+            line-height: 30px;
+            font-size: 12px;
+            color: #fff;
+            text-align: center;
+            background-color: rgb(51, 40, 40);
+            cursor: pointer;
+        }
+        div>p{
+            font: 18px weight;
+            color: red;
+            text-align: center;
+            z-index: 20;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>不允许走出墙可以吗,这样我不和你们玩了 ctrl+z 撤回一步,也有可能很多步,键盘键上下左右控制</p>
+    </div>
+    <div id="game">
+        <h1>推箱子小游戏</h1>
+    </div>
+    <ul class="choose">
+        <li>第一关</li>
+        <li>第二关</li>
+        <li>第三关</li>
+        <li>第四关</li>
+    </ul>
+    <script src="./map/map1.js"></script>
+    <script src="./js/game.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/hitsory.js"></script>
+    <script src="./js/block.js"></script>
+    <script src="./js/wall.js"></script>
+    <script src="./js/box.js"></script>
+    <script src="./js/winpoint.js"></script>
+    <script src="./js/person.js"></script>
+    <script>
+        //推箱子 
+        // document.onmousewheel  = function(e){ //鼠标滚轮事件 onmousewheel
+        //     e.preventDefault()
+        // } 阻止滚动条
+        let game = new Game("#game")
+
+        // game.setMap(new Map("./map/map1.js"))
+        //点击小按钮
+        let choose = document.querySelectorAll(".choose>li")
+ 
+        choose[1].addEventListener("click",function(){
+            confirm("充钱了🐴?就想玩你🐴的第二关?")
+            game.section2()
+        })
+        choose[0].addEventListener("click",function(){
+            game.section1()
+        })
+        choose[2].addEventListener("click",function(){
+            confirm("臭弟弟第三关也想玩?")
+            game.gamearea.innerHTML = "是不是惊了,没有第三关哈哈"
+
+        })
+        choose[3].addEventListener("click",function(){
+            game.gamearea.innerHTML = null;
+            game.section4()
+        })
+
+
+
+    </script>
+</body>
+</html>

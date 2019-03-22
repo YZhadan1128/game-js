@@ -1,0 +1,15 @@
+@charset "utf-8";
+body{
+    background-color: #aaa;
+}
+#game{
+    position: relative;
+    width: 700px;
+    height: 700px;
+    margin: 20px auto 0;
+    background-color: #fff;
+    
+}
+#game>div{
+    transition: .5s;
+}
